@@ -1,0 +1,41 @@
+.breadcrumbs {
+	border: none;
+	width: 100%;
+	background-color: rgb(255, 130, 4);
+	
+}
+	
+.bc_faq {
+	background-color: rgb(0, 255, 255);
+	
+}
+
+@media (max-width: 740px) {
+	a img, p img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	blockquote {
+		margin: 10px;
+	}
+	
+	.breadcrumbs, .breadcrumbs tr {
+		display: block;
+	}
+
+	.breadcrumbs td {
+		display: inline-block;
+	}
+	
+	ul#page-menu {
+		line-height: 300%;
+		text-align: left;
+		white-space: normal;
+	}
+	
+	pre {
+		white-space: normal;
+	}
+}
+
