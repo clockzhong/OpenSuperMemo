@@ -38,5 +38,7 @@ class Card(object):
         #check whether we need relearn this card today
         if (easiness<4):
             self.needRelearn=True
+        else:
+            self.needRelearn=False
 
 

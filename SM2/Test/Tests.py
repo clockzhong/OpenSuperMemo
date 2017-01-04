@@ -19,14 +19,17 @@ class TestSM2(unittest.TestCase):
         self.card.answer(0)
         self.assertEqual(self.card.EF, 2.0)
         self.assertEqual(self.card.interval, 1*24*3600)
+        self.assertEqual(self.card.needRelearn, True)
         #when answer easiness as 1, the EF and interval should be same as the init values
         self.card.answer(1)
         self.assertEqual(self.card.EF, 2.0)
         self.assertEqual(self.card.interval, 1*24*3600)
+        self.assertEqual(self.card.needRelearn, True)
         #when answer easiness as 2, the EF and interval should be same as the init values
         self.card.answer(2)
         self.assertEqual(self.card.EF, 2.0)
         self.assertEqual(self.card.interval, 1*24*3600)
+        self.assertEqual(self.card.needRelearn, True)
 
 
         self.card.answer(3)
@@ -41,6 +44,7 @@ class TestSM2(unittest.TestCase):
         #print self.card.interval
         self.assertEqual(self.card.EF, 1.86)
         self.assertEqual(self.card.interval, int(6*24*3600*1.86))
+        self.assertEqual(self.card.needRelearn, False)
 
 if __name__ == '__main__':
 	unittest.main()
