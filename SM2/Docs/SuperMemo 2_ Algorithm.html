@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.supermemo.com/english/ol/sm2.htm -->
+<html class="gr__supermemo_com"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="Company" content="SuperMemo World">
+<meta name="Generator" content="Pajaczek NxG PRO v5.9.9">
+<title>SuperMemo 2: Algorithm</title>
+<link rel="stylesheet" href="./SuperMemo 2_ Algorithm_files/styles.css" type="text/css"></head>
+
+<body data-gr-c-s-loaded="true"><!-- Google Tag Manager --><noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-5P4GKN" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript><script type="text/javascript" async="" src="./SuperMemo 2_ Algorithm_files/analytics.js"></script><script async="" src="./SuperMemo 2_ Algorithm_files/gtm.js"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P4GKN');</script><!-- End Google Tag Manager -->
+<div align="center"><center>
+
+<table cellpadding="6" cellspacing="6" class="breadcrumbs">
+  <tbody><tr>
+    <td bgcolor="#FF8204"><a href="https://www.supermemo.com/index.htm"><font color="#FFFFFF">Home</font></a></td>
+    <td bgcolor="#FF8204"><a href="https://www.supermemo.com/english/news.htm"><font color="#000000">News</font></a></td>
+    <td bgcolor="#FF8204"><a href="http://www.super-memo.com/"><font color="#000000">Shopping</font></a></td>
+    <td bgcolor="#FF8204"><a href="https://www.supermemo.com/help/faq/index.htm"><font color="#000000">FAQ</font></a></td>
+    <td bgcolor="#FF8204"><a href="http://www.super-memory.com/sml/sml.htm"><font color="#000000">Library</font></a></td>
+    <td bgcolor="#FF8204"><a href="https://www.supermemo.com/english/down.htm"><font color="#000000">Download</font></a></td>
+    <td bgcolor="#FF8204"><a href="https://www.supermemo.com/help/index.htm">Help</a></td>
+    <td bgcolor="#FF8204"><a href="https://www.supermemo.com/english/contact.htm">Support</a></td>
+  </tr>
+  <tr>
+    <td colspan="8" bgcolor="#FFC286"><a href="https://www.supermemo.com/english/contents.htm">Contents</a>
+    : <a href="https://www.supermemo.com/english/contents.htm#Articles">Articles</a> : <a href="https://www.supermemo.com/english/contents.htm#Optimization of learning">Optimization of learning</a></td>
+  </tr>
+</tbody></table>
+</center></div><div align="center"><center>
+
+<table border="0" cellpadding="4" cellspacing="4" width="100%">
+  <tbody><tr>
+    <td width="50%" bgcolor="#EDFD7B"><b><font size="5">3.2. Application of a
+    computer to improve the results obtained in working with the SuperMemo method</font></b></td>
+    <td width="15%" bgcolor="#FF8204">Piotr Wozniak,<br>
+    1990</td>
+  </tr>
+</tbody></table>
+</center></div><div align="center"><center>
+
+<table border="2" cellpadding="4" cellspacing="4" width="100%">
+  <tbody><tr>
+    <td width="100%" bgcolor="#FFFFBB">This text was taken from
+    P.A.Wozniak, <a href="https://www.supermemo.com/english/ol.htm"><em>Optimization of learning</em></a>, Master's Thesis, <a href="http://www.put.poznan.pl/Welcome.html">University of Technology in Poznan</a>, 1990
+    and adapted for publishing as an independent article on the web. (P.A.Wozniak, May 10,
+    1998)</td>
+  </tr>
+</tbody></table>
+</center></div>
+
+<p><font size="3">I wrote the first SuperMemo program in December 1987 (Turbo
+Pascal 3.0, IBM PC). It was intended to enhance the SuperMemo method in two basic ways:</font>
+
+</p><ol>
+  <li><font size="3">apply the optimization procedures to smallest possible items
+    (in the paper-based SuperMemo items were grouped in pages),</font></li>
+  <li><font size="3">differentiate between the items on the base of their
+    different difficulty.</font></li>
+</ol>
+
+<p><font size="3">Having observed that subsequent inter-repetition intervals
+are increasing by an approximately constant factor (e.g. two in the case of the SM-0
+algorithm for English vocabulary), I decided to apply the following formula to calculate
+inter-repetition intervals:</font></p>
+
+<blockquote>
+  <p><font size="3">I(1):=1<br>
+  I(2):=6<br>
+  for n&gt;2 I(n):=I(n-1)*EF</font></p>
+</blockquote>
+
+<p><font size="3">where:</font></p>
+
+<blockquote>
+  <p><font size="3">I(n) - inter-repetition interval after the n-th repetition
+  (in days)<br>
+  EF - easiness factor reflecting the easiness of memorizing and retaining a given item in
+  memory (later called the <a name="E-Factor">E-Factor</a>).</font></p>
+</blockquote>
+
+<p><font size="3">E-Factors were allowed to vary between 1.1 for the most
+difficult items and 2.5 for the easiest ones. At the moment of introducing an item into a
+SuperMemo database, its E-Factor was assumed to equal 2.5. In the course of repetitions
+this value was gradually decreased in case of recall problems. Thus the greater problems
+an item caused in recall, the more significant was the decrease of its E-Factor.</font></p>
+
+<p><font size="3">Shortly after the first SuperMemo program had been
+implemented, I noticed that E-Factors should not fall below the value of 1.3. Items having
+E-Factors lower than 1.3 were repeated annoyingly often and always seemed to have inherent
+flaws in their formulation (usually they did not conform to the minimum information
+principle). Thus not letting E-Factors fall below 1.3 substantially improved the
+throughput of the process and provided an indicator of items that should be reformulated.
+The formula used in calculating new E-Factors for items was constructed heuristically and
+did not change much in the following 3.5 years of using the computer-based SuperMemo
+method.</font></p>
+
+<p><font size="3">In order to calculate the new value of an E-Factor, the
+student has to assess the quality of his response to the question asked during the
+repetition of an item (my SuperMemo programs use the 0-5 grade scale - the range
+determined by the ergonomics of using the numeric key-pad). The general form of the
+formula used was:</font></p>
+
+<blockquote>
+  <p><font size="3">EF':=f(EF,q)</font></p>
+</blockquote>
+
+<p><font size="3">where:</font></p>
+
+<blockquote>
+  <p><font size="3">EF' - new value of the E-Factor<br>
+  EF - old value of the E-Factor<br>
+  q - quality of the response<br>
+  f - function used in calculating EF'.</font></p>
+</blockquote>
+
+<p><font size="3">The function f had initially multiplicative character and
+was in later versions of SuperMemo program, when the interpretation of E-Factors changed
+substantially, converted into an additive one without significant alteration of
+dependencies between EF', EF and q. To simplify further considerations only the function f
+in its latest shape is taken into account:</font></p>
+
+<blockquote>
+  <p><font size="3">EF':=EF-0.8+0.28*q-0.02*q*q</font></p>
+</blockquote>
+
+<p><font size="3">which is a reduced form of:</font></p>
+
+<blockquote>
+  <p><font size="3">EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))</font></p>
+</blockquote>
+
+<p><font size="3">Note, that for q=4 the E-Factor does not change. </font></p>
+
+<p><font size="3">Let us now consider the final form of the SM-2 algorithm
+that with minor changes was used in the SuperMemo programs, versions 1.0-3.0 between
+December 13, 1987 and March 9, 1989 (the name SM-2 was chosen because of the fact that <a href="https://www.supermemo.com/english/sms.htm">SuperMemo 2.0</a> was by far the most popular version
+implementing this algorithm).</font></p>
+
+<p><b><font size="4">Algorithm SM-2 used in the computer-based variant of the
+SuperMemo method and involving the calculation of easiness factors for particular items:</font></b></p>
+
+<blockquote>
+  <ol>
+    <li><font size="3">Split the knowledge into smallest possible items.</font></li>
+    <li><font size="3">With all items associate an E-Factor equal to 2.5.</font></li>
+    <li><font size="3">Repeat items using the following intervals:<br>
+      <strong>I(1):=1<br>
+      I(2):=6<br>
+      for n&gt;2: I(n):=I(n-1)*EF<br>
+      </strong>where:<br>
+      I(n) - inter-repetition interval after the n-th repetition (in days),<br>
+      EF - E-Factor of a given item<br>
+      If interval is a fraction, round it up to the nearest integer.</font></li>
+    <li><font size="3">After each repetition assess the quality of repetition
+      response in 0-5 grade scale:<br>
+      5 - perfect response<br>
+      4 - correct response after a hesitation<br>
+      3 - correct response recalled with serious difficulty<br>
+      2 - incorrect response; where the correct one seemed easy to recall<br>
+      1 - incorrect response; the correct one remembered<br>
+      0 - complete blackout.</font></li>
+    <li><font size="3">After each repetition modify the E-Factor of the recently
+      repeated item according to the formula:<br>
+      <strong>EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))<br>
+      </strong>where:<br>
+      EF' - new value of the E-Factor,<br>
+      EF - old value of the E-Factor,<br>
+      q - quality of the response in the 0-5 grade scale.<br>
+      If EF is less than 1.3 then let EF be 1.3.</font></li>
+    <li><font size="3">If the quality response was lower than 3 then start
+      repetitions for the item from the beginning without changing the E-Factor (i.e. use
+      intervals I(1), I(2) etc. as if the item was memorized anew).</font></li>
+    <li><font size="3">After each repetition session of a given day repeat again
+      all items that scored below four in the quality assessment. Continue the repetitions until
+      all of these items score at least four.</font></li>
+  </ol>
+</blockquote>
+
+<p><font size="3">The optimization procedure used in finding E-Factors proved
+to be very effective. In SuperMemo programs you will always find an option for displaying
+the distribution of E-Factors (later called the E-Distribution). The shape of the
+E-Distribution in a given database was roughly established within few months since the
+outset of repetitions. This means that E-Factors did not change significantly after that
+period and it is safe to presume that E-Factors correspond roughly to the real factor by
+which the inter-repetition intervals should increase in successive repetitions.</font></p>
+
+<p><font size="3">During the first year of using the SM-2 algorithm (learning
+English vocabulary), I memorized 10,255 items. The time required for creating the database
+and for repetitions amounted to 41 minutes per day. This corresponds to the acquisition
+rate of 270 items/year/min. The overall retention was 89.3%, but after excluding the
+recently memorized items (intervals below 3 weeks) which do not exhibit properly
+determined E-Factors the retention amounted to 92%. Comparing the SM-0 and SM-2 algorithms
+one must consider the fact that in the former case the retention was artificially high
+because of hints the student is given while repeating items of a given page. Items
+preceding the one in question can easily suggest the correct answer.<br>
+Therefore the SM-2 algorithm, though not stunning in terms of quantitative comparisons,
+marked the second major improvement of the SuperMemo method after the introduction of the
+concept of optimal intervals back in 1985. Separating items previously grouped in pages
+and introducing E-Factors were the two major components of the improved algorithm.
+Constructed by means of the trial-and-error approach, the SM-2 algorithm proved in
+practice the correctness of nearly all basic assumptions that led to its conception</font><font size="2">.</font></p>
+
+<hr>
+
+<p><font size="3">For a specific implementation of the Algorithm SM-2 see <a href="https://www.supermemo.com/english/ol/sm2source.htm">SuperMemo 2 Plug-In Source Code</a> </font></p>
+
+</body></html>
