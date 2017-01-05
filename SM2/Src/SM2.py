@@ -15,7 +15,7 @@ class Card(object):
             newEF=1.3
         self.EF=newEF
         return self.EF
-    def updateInterval(self, easiness):
+    def updateInterval(self):
         if self.interval==1*24*3600:
             self.interval =6*24*3600 #I(2)=6
         else:
@@ -32,7 +32,7 @@ class Card(object):
         #if not, just keep it as following. According to my understanding on the https://www.supermemo.com/english/ol/sm2.htm
         #It's very possible that we need use the old EF value to calculate the next interval, and the new EF value
         #need be used in the NEXT NEXT interval's calculation
-        self.updateInterval(easiness)
+        self.updateInterval()
         self.updateEF(easiness)
 
         #check whether we need relearn this card today
