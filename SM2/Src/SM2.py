@@ -6,7 +6,7 @@ class Card(object):
         self.interval=1*24*3600#The first interval is 1 day(24*3600secs), and the second interval is 6 days, I(1)=1
 
         #I use needRelearn to indicate whether the user need re-study this entry after anwser() it
-        # The following copied from sm2.html, 
+        # The following is copied from sm2.html, 
         #"After each repetition session of a given day repeat again all items that scored below four in the quality assessment. Continue the repetitions until all of these items score at least four."
         self.needRelearn=False
     def updateEF(self, easiness):
@@ -29,7 +29,7 @@ class Card(object):
             return
 
         #should we use the newer EF to calculate the next interval? if yes, we need switch the following lines, 
-        #if not, just keep it. According to my understanding on the https://www.supermemo.com/english/ol/sm2.htm
+        #if not, just keep it as following. According to my understanding on the https://www.supermemo.com/english/ol/sm2.htm
         #It's very possible that we need use the old EF value to calculate the next interval, and the new EF value
         #need be used in the NEXT NEXT interval's calculation
         self.updateInterval(easiness)
